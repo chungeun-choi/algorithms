@@ -3,14 +3,17 @@ package main
 import (
 	"fmt"
 
-	. "github.com/cucuridas/go-algorithms/array"
+	. "github.com/cucuridas/go-algorithms/array/practiceCode"
+	. "github.com/cucuridas/go-algorithms/condingtest/array"
 )
 
 
 
 func main(){
+	//배열 자료구조 확인
 	//array()
-	improveArray()
+	//improveArray()
+	back10808()
 }
 
 
@@ -39,4 +42,9 @@ func improveArray() {
 
 	fmt.Println(deleteArray)
 
+}
+
+func back10808() {
+	testValue := "abcder"
+	Solution(testValue)
 }
