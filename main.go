@@ -13,7 +13,8 @@ func main(){
 	//배열 자료구조 확인
 	//array()
 	//improveArray()
-	back10808()
+	//back10808()
+	quetion()
 }
 
 
@@ -47,4 +48,12 @@ func improveArray() {
 func back10808() {
 	testValue := "abcder"
 	Solution(testValue)
+}
+
+
+func quetion(){
+	arrya := []int{1,33,12,66,34}
+	result := QSolution(arrya,5)
+
+	fmt.Printf("%d",result)
 }
