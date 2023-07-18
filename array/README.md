@@ -54,3 +54,57 @@
     ```go
     slice = append(slice[:idx], slice[idx+1:]...)
     ```
+
+
+### 코딩테스트 문제
+
+백준 10808
+
+- 기존 해결
+    
+    기존 문제 풀이 시 아스키 코드까지는 생각을 하여 반복을 하게 끔 하였으나  count 함수를 씀으로 인해서 큰 의미가 없는 풀이가 되어버렸음 
+    
+
+```go
+const startAlpha = 97
+
+func Solution(s string) string {
+	//returnArray := make([]int, 26)
+	var result string 
+	for cnt := startAlpha ; cnt <= startAlpha + 26 ;cnt ++ {
+		result += fmt.Sprintf("%d",strings.Count(s,string(cnt)))
+	}
+	result = strings.TrimSpace(result)
+	return result
+} 
+```
+
+- 개선 해결
+    
+    알파벳 소문자는 97부터 26개로 연속적으로 이루어져있음 이에 따라 0~25 까지로 표현이 가능함 
+    
+    1) 크기 26의 배열을 선언
+    
+    2) 입력되는 string 값을 ‘a’ 아스키 코드인 97을 뺌으로서 해당 배열에 1을 추가하는 식의 연산 
+    
+    → 알파벳의 갯수만큼 연산하는 것이 아닌 입력되는 string의 크기만큼만 연산함에 따라 효율적인 연산
+    
+
+```go
+func ImporoveSolution(s string) (result string) {
+	count := make([]int,26)
+
+	for _,c := range(s){
+		char := rune(c) - rune('a')
+		count[char]++
+	}
+
+	for _, i := range count {
+		result += fmt.Sprintf("%d",i)
+	}
+
+	result = strings.TrimSpace(result)
+
+	return
+}
+```
