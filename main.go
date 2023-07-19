@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 
+	. "github.com/cucuridas/go-algorithms/_condingtest/array"
 	. "github.com/cucuridas/go-algorithms/array/practiceCode"
-	. "github.com/cucuridas/go-algorithms/condingtest/array"
+
+	. "github.com/cucuridas/go-algorithms/linkedlist"
 )
 
 
@@ -14,7 +16,8 @@ func main(){
 	//array()
 	//improveArray()
 	//back10808()
-	quetion()
+	//quetion()
+	linkedList()
 }
 
 
@@ -56,4 +59,41 @@ func quetion(){
 	result := QSolution(arrya,5)
 
 	fmt.Printf("%d",result)
+}
+
+
+func linkedList() {
+	linkd := NewLinkedList(1233)
+
+	linkd.InsertNext(2434)
+	linkd.InsertNext(544)
+	linkd.InsertNext(55621)
+
+
+	linkd.GetAllNodes()
+
+	linkd.DeleteLast(nil)
+
+	linkd.GetAllNodes()
+
+
+	linkd.DeleteIndex(2)
+
+	linkd.GetAllNodes()
+
+	linkd.InsertIndex(1,659)
+
+	linkd.GetAllNodes()
+
+
+	_,value := linkd.GetIndexNode(2)
+
+	fmt.Println(value)
+
+	linkd.DeleteNode(value)
+
+
+	linkd.GetAllNodes()
+
+	
 }
