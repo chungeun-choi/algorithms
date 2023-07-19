@@ -8,3 +8,5 @@ Go를 통해 알고리즘을 구현해보고 학습하기 위한 레파지토리
 
 
 배열(Array) [[링크]](./array/README.md) 
+</br>
+연결 리스트(Linked Lisk) [[링크]](./linkedlist/README.md) 
