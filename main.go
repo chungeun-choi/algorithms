@@ -7,6 +7,7 @@ import (
 	. "github.com/cucuridas/go-algorithms/array/practiceCode"
 
 	. "github.com/cucuridas/go-algorithms/linkedlist"
+	. "github.com/cucuridas/go-algorithms/stack"
 )
 
 
@@ -17,7 +18,9 @@ func main(){
 	//improveArray()
 	//back10808()
 	//quetion()
-	linkedList()
+	//linkedList()
+
+	stack()
 }
 
 
@@ -96,4 +99,22 @@ func linkedList() {
 	linkd.GetAllNodes()
 
 	
+}
+
+
+func stack(){
+	stack := NewStack()
+
+	stack.Push(123)
+	stack.Push(33)
+	stack.Push(6642)
+	stack.Push(1233)
+
+	stack.GetObjectALl()
+
+
+	result := stack.Pop()
+	fmt.Printf("After Pop %d \n",result)
+	stack.GetObjectALl()
+
 }
