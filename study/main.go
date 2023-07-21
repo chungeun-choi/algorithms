@@ -6,6 +6,7 @@ import (
 	. "go-algorithms/study/array/practiceCode"
 
 	. "go-algorithms/study/linkedlist"
+	. "go-algorithms/study/queue"
 	. "go-algorithms/study/stack"
 )
 
@@ -19,7 +20,8 @@ func main(){
 	//quetion()
 	//linkedList()
 
-	stack()
+	//stack()
+	queue()
 }
 
 
@@ -105,4 +107,20 @@ func stack(){
 	fmt.Printf("After Pop %d \n",result)
 	stack.GetObjectALl()
 
+}
+
+
+func queue(){
+	queue := NewQueue()
+
+	queue.Push(12333)
+
+	queue.Push(2355)
+
+	queue.GetAllObject()
+
+	result := queue.Pop()
+	fmt.Printf("value %d \n",result)
+	
+	queue.GetAllObject()
 }
