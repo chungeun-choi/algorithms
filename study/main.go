@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 
-	. "github.com/cucuridas/go-algorithms/_condingtest/array"
-	. "github.com/cucuridas/go-algorithms/array/practiceCode"
+	. "go-algorithms/study/array/practiceCode"
 
-	. "github.com/cucuridas/go-algorithms/linkedlist"
-	. "github.com/cucuridas/go-algorithms/stack"
+	. "go-algorithms/study/linkedlist"
+	. "go-algorithms/study/stack"
 )
 
 
@@ -51,18 +50,7 @@ func improveArray() {
 
 }
 
-func back10808() {
-	testValue := "abcder"
-	Solution(testValue)
-}
 
-
-func quetion(){
-	arrya := []int{1,33,12,66,34}
-	result := QSolution(arrya,5)
-
-	fmt.Printf("%d",result)
-}
 
 
 func linkedList() {
