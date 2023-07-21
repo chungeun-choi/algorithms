@@ -9,7 +9,7 @@ type Queue struct {
 }
 
 
-func NewQueue() *Queue {
+func NewQueue() QueueInterface {
 	return &Queue{}
 	}
 

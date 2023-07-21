@@ -21,7 +21,8 @@ func main(){
 	//linkedList()
 
 	//stack()
-	queue()
+	//queue()
+	improveQueue()
 }
 
 
@@ -112,6 +113,23 @@ func stack(){
 
 func queue(){
 	queue := NewQueue()
+
+	queue.Push(12333)
+
+	queue.Push(2355)
+
+	queue.GetAllObject()
+
+	result := queue.Pop()
+	fmt.Printf("value %d \n",result)
+	
+	queue.GetAllObject()
+	
+}
+
+
+func improveQueue() {
+	queue := NewImproveQueue(4)
 
 	queue.Push(12333)
 
