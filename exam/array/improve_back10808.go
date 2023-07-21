@@ -3,7 +3,6 @@ package array
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 )
 
@@ -25,7 +24,7 @@ func ImporoveSolution(s string) (result string) {
 }
 
 
-func scan (rd *bufio.Reader) string {
+func Scan (rd *bufio.Reader) string {
 	str, _:= rd.ReadString('\n')
 	str = strings.TrimSpace(str)
 
@@ -34,12 +33,4 @@ func scan (rd *bufio.Reader) string {
 } 
 
 
-func main() {
-	rd := bufio.NewReader(os.Stdin)
-	wr := bufio.NewWriter(os.Stdout)
 
-	word:= scan(rd)
-
-	_,_ = wr.WriteString(ImporoveSolution(word))
-	_ = wr.Flush()
-}
