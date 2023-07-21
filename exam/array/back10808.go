@@ -12,7 +12,7 @@ const startAlpha = 97
 func Solution(s string) string {
 	//returnArray := make([]int, 26)
 	var result string 
-	for cnt := startAlpha ; cnt <= startAlpha + 26 ;cnt ++ {
+	for cnt := startAlpha ; cnt <= startAlpha + 25 ;cnt ++ {
 		result += fmt.Sprintf("%d",strings.Count(s,string(cnt)))
 	}
 	result = strings.TrimSpace(result)
