@@ -1,5 +1,6 @@
 from itertools import islice
 
+
 def solution(survey, choices):
     answer = ''
     type_dict = {
@@ -30,24 +31,68 @@ def solution(survey, choices):
 
     return answer
 
+def solution2(n,m):
+    # 1억건의 input 값이라서 n 만큼 돌릴 수 없음 -> 탐색 문제가 아님에따라 DP를 사용해야함
+    x= 0
+    cnt = 1
 
+    while True:
+        x = (x+m)%n
+        if x == 0:
+            break
+        else:
+            cnt= cnt+1
+
+    return cnt
+
+def solution2_improve(n,m):
+    # 많은 양의 데이터를 구하게 될 때  O(m+n)만큼의 시간이 걸리게됨
+    # n과 m의 최대 공약수를 나누어 줌으로써 계산식 단축
+    # 유클리드 호제법 : n,m(n>m)이고  r =  n%m 일 때, n과m의 최대공약수는 m과 r의 최대공약수와 같다
+    
+    a,b =n,m
+    while (b):
+        a,b= b,a%b
+    gcd = a
+    
+    return n // gcd
+        
 
 
 if __name__ == "__main__":
 
-    test_input = {
+    test_solution1_input = {
         "survey": ["AN", "CF", "MJ", "RT", "NA"],
         "choices": [5, 3, 2, 7, 5]
 
     }
 
 
-    test_input2 = {
+    test_solution1_input2 = {
         "survey": ["TR", "RT", "TR"],
         "choices": [7, 1, 3]
 
     }
 
 
-    assert(solution(**test_input2) =='RCJA')
-    assert(solution(**test_input) =="TCMA")
+    
+
+    assert(solution(**test_solution1_input2) =='RCJA')
+    assert(solution(**test_solution1_input) =="TCMA")
+
+
+
+    test_solution2_input = {    
+        "n":10,
+        "m":4
+    }
+
+    test_solution2_input2 = {
+        "n": 947853,
+        "m":4453
+
+    }
+
+
+    print(solution2(**test_solution2_input2))
+    print(solution2_improve(**test_solution2_input2))
