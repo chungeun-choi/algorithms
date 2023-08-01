@@ -56,7 +56,31 @@ def solution2_improve(n,m):
     gcd = a
     
     return n // gcd
-        
+
+
+from collections import Counter
+# 1:6 , 2:5, 3:4, 4:3, 5:2 6:1
+def solution3(lottos,win_nums):
+    
+    result = {
+        0: 6,
+        1: 6,
+        2: 5,
+        3: 4,
+        4: 3,
+        5: 2,
+        6: 1
+    }
+
+    zero_count = Counter(lottos)[0]
+    same_count = 0
+    for i in range(0,len(lottos)):
+        if lottos[i] in win_nums:
+            same_count += 1
+        else:
+            continue
+    
+    return [result[same_count+zero_count],result[same_count]]
 
 
 if __name__ == "__main__":
@@ -94,5 +118,14 @@ if __name__ == "__main__":
     }
 
 
-    print(solution2(**test_solution2_input2))
-    print(solution2_improve(**test_solution2_input2))
+    assert(solution2(**test_solution2_input)==5)
+    assert(solution2_improve(**test_solution2_input2)==947853)
+
+
+
+    test_solution3_input1 = {
+        "lottos":[44, 1, 0, 0, 31, 25],
+        "win_nums":[31, 10, 45, 1, 6, 19]
+    }
+
+    assert(solution3(**test_solution3_input1) ==[3,5])
