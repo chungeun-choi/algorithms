@@ -83,6 +83,42 @@ def solution3(lottos,win_nums):
     return [result[same_count+zero_count],result[same_count]]
 
 
+def solution4(s):
+    answer = 0
+    queue = []
+    value = {
+        "zero":0,
+        "one":1,
+        "two":2,
+        "three":3,
+        "four":4,
+        "five":5,
+        "six":6,
+        "seven":7,
+        "eight":8,
+        "nine":9
+    }
+
+    change_points = []
+
+    for cnt,char in enumerate(s) :
+        if char.isdigit():
+            continue
+        else:
+            queue.append(char)
+            keyword = "".join(queue).lower()
+            if keyword in value :
+                queue = []
+                change_points.append(keyword)
+    
+    for change_object in change_points:
+        s = s.replace(change_object,str(value[change_object]))
+
+    answer = int(s)
+
+    return answer
+
+
 if __name__ == "__main__":
 
     test_solution1_input = {
@@ -129,3 +165,15 @@ if __name__ == "__main__":
     }
 
     assert(solution3(**test_solution3_input1) ==[3,5])
+
+
+
+    test_solution4_input1 = {
+        "s" : "one4seveneight"
+    }
+
+    test_solution4_input2 = {
+        "s" : "oneoneoneone"
+    }
+
+    assert(solution4(**test_solution4_input2)==1000)
