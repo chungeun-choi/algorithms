@@ -119,8 +119,43 @@ def solution4(s):
     return answer
 
 
+import re
+def solution5(dartResult):
+    answer = 0
+
+    parts = re.findall(r'\d+[SDT][*#]?', dartResult)
+
+
+
+    option1_list = {
+            "S": lambda x: x ,
+            "D": lambda x: x*x,
+            "T": lambda x: x*x*x
+        }
+    
+
+    for part in parts :
+        if len(part) == 2:
+            point,option1 = part
+            calculation = option1_list[option1]
+            answer += int(calculation(int(point)))
+
+        elif len(part)==3:
+            point,option1,option2 = part
+
+            if option2 == "*":
+                calculation = option1_list[option1]
+                answer += int(calculation(int(point)))
+                answer = answer*2
+            elif option2 == "#":
+                calculation = option1_list[option1]
+                answer -= int(calculation(int(point)))
+
+    return answer
+
 if __name__ == "__main__":
 
+    # programmers - 성격유형 검사기 (https://school.programmers.co.kr/learn/courses/30/lessons/118666)
     test_solution1_input = {
         "survey": ["AN", "CF", "MJ", "RT", "NA"],
         "choices": [5, 3, 2, 7, 5]
@@ -134,14 +169,11 @@ if __name__ == "__main__":
 
     }
 
-
-    
-
     assert(solution(**test_solution1_input2) =='RCJA')
     assert(solution(**test_solution1_input) =="TCMA")
 
 
-
+    # codility - chocolate (https://app.codility.com/programmers/lessons/12-euclidean_algorithm/chocolates_by_numbers/)
     test_solution2_input = {    
         "n":10,
         "m":4
@@ -158,7 +190,7 @@ if __name__ == "__main__":
     assert(solution2_improve(**test_solution2_input2)==947853)
 
 
-
+    # programmers - 로또의 최고 순위와 최저 순위(https://school.programmers.co.kr/learn/courses/30/lessons/77484)
     test_solution3_input1 = {
         "lottos":[44, 1, 0, 0, 31, 25],
         "win_nums":[31, 10, 45, 1, 6, 19]
@@ -167,7 +199,7 @@ if __name__ == "__main__":
     assert(solution3(**test_solution3_input1) ==[3,5])
 
 
-
+    # programmers - 숫자 문자와 영단어 (https://school.programmers.co.kr/learn/courses/30/lessons/81301)
     test_solution4_input1 = {
         "s" : "one4seveneight"
     }
@@ -176,4 +208,13 @@ if __name__ == "__main__":
         "s" : "oneoneoneone"
     }
 
-    assert(solution4(**test_solution4_input2)==1000)
+    assert(solution4(**test_solution4_input1)==1478)
+    assert(solution4(**test_solution4_input2)==1111)
+
+
+    # programmers - 다트 게임 (https://school.programmers.co.kr/learn/courses/30/lessons/17682)
+    test_solution5_input1 = {
+        "dartResult":"1S2D*3T"
+    }
+
+    assert(solution5(**test_solution5_input1)== 37)
