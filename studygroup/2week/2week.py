@@ -21,6 +21,46 @@ def solution(N, stages):
 
 
 
+def solution2(numbers, hand):
+    answer = ''
+    '''
+    키패드 형태
+    1 2 3   
+    4 5 6
+    7 8 9 
+    *   #
+    '''
+
+    left_pos = '*'
+    right_pos = '#'
+
+    left_hands_list = [1,4,7,"*"]
+    right_hands_list = [3,6,9,'#']
+
+
+    for number in numbers :
+        if number in left_hands_list:
+            answer += 'L'
+            left_pos = number
+            continue
+
+        if number in right_hands_list:
+            answer += 'R'
+            right_pos = number
+            continue
+        # 맨하튼 거리 계산법 - abs((x1-x2)) + abs((y1-y2))
+        l_distance = None
+        r_distance = None
+        
+        if l_distance > r_distance:
+            answer +='R'
+        else:
+            answer += 'L'
+    
+    return answer
+
+
+
 
 if __name__== "__main__":
     # programmers - 실패율 [https://school.programmers.co.kr/learn/courses/30/lessons/42889]
@@ -35,3 +75,18 @@ if __name__== "__main__":
     }
     assert(solution(**test1_input)==[3,4,2,1,5])
     assert(solution(**test1_input2)==[4,1,2,3])
+
+    # programmers - 키패드 누르기 [https://school.programmers.co.kr/learn/courses/30/lessons/67256]
+    test2_input = {
+        "numbers": [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5],
+        "hand": "right"
+    }
+
+    test2_input2 = {
+        'numbers': [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],
+        'hand':'left'
+    }
+
+    assert(solution2(**test2_input)=="LRLLLRLLRRL")
+    assert(solution2(**test2_input)=="LRLLRRLLLRR")
+
