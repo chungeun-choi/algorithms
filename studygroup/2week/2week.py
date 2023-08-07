@@ -31,32 +31,54 @@ def solution2(numbers, hand):
     *   #
     '''
 
-    left_pos = '*'
-    right_pos = '#'
-
+    left_pos = (3,0) # '*'
+    right_pos = (3,2) # '#'
+    
+    key_pad = {
+        1: (0,0), 2:(0,1),3:(0,2),
+        4: (1,0), 5:(1,1),6:(1,2),
+        7: (2,0), 8:(2,1),9:(2,2),
+        "*": (3,0), 0:(3,1),"#":(3,2)
+    }
+    
     left_hands_list = [1,4,7,"*"]
     right_hands_list = [3,6,9,'#']
 
+    hands = {"right":"R","left":'L'}
 
+    # 1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5
     for number in numbers :
         if number in left_hands_list:
             answer += 'L'
-            left_pos = number
+            left_pos = key_pad[number]
             continue
 
         if number in right_hands_list:
             answer += 'R'
-            right_pos = number
+            right_pos = key_pad[number]
             continue
+        
         # 맨하튼 거리 계산법 - abs((x1-x2)) + abs((y1-y2))
-        l_distance = None
-        r_distance = None
+        number_pos = key_pad[number]
+        l_distance = abs(left_pos[0]-number_pos[0]) + abs(left_pos[1]-number_pos[1])
+        r_distance = abs(right_pos[0]-number_pos[0]) + abs(right_pos[1]-number_pos[1])
+
         
         if l_distance > r_distance:
             answer +='R'
-        else:
+            right_pos = key_pad[number]
+        elif l_distance < r_distance:
             answer += 'L'
-    
+            left_pos = key_pad[number]   
+        else:
+            if 'right' == hand:
+                answer += hands[hand]
+                right_pos = key_pad[number]
+            else :
+                answer += hands[hand]
+                left_pos = key_pad[number]
+                
+        
     return answer
 
 
@@ -88,5 +110,5 @@ if __name__== "__main__":
     }
 
     assert(solution2(**test2_input)=="LRLLLRLLRRL")
-    assert(solution2(**test2_input)=="LRLLRRLLLRR")
+    assert(solution2(**test2_input2)=="LRLLRRLLLRR")
 
