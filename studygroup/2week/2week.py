@@ -82,6 +82,10 @@ def solution2(numbers, hand):
     return answer
 
 
+def solution3(today, terms, privacies):
+    answer = []
+    return answer
+
 
 
 if __name__== "__main__":
@@ -112,3 +116,5 @@ if __name__== "__main__":
     assert(solution2(**test2_input)=="LRLLLRLLRRL")
     assert(solution2(**test2_input2)=="LRLLRRLLLRR")
 
+
+    
