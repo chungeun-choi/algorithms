@@ -1,24 +1,26 @@
 def solution(board, moves):
     answer = 0
     queue = []
+    
 
     for move in moves :
         for cnt in range(0,len(board)):
+            print("boar pos: {} , board value: {}".format((cnt,move-1),board[cnt][move-1]))
             if board[cnt][move-1] != 0:
                 if queue: 
                     if queue[-1] == board[cnt][move-1]:
                         queue.pop() 
                         board[cnt][move-1]= 0
                         answer +=2
-                        continue
+                        break
                     else:
                         queue.append(board[cnt][move-1])
                         board[cnt][move-1] = 0
-                        continue
+                        break
                 else :
                     queue.append(board[cnt][move-1])
                     board[cnt][move-1] = 0
-                    continue
+                    break
             else:
                 continue
 
