@@ -26,7 +26,7 @@ def check_wall(place,manhaten_list):
                 return False
 
         return True
-def solution(places):
+def solution1(places):
     answer = []
 
     for place in places:
@@ -56,6 +56,54 @@ def solution(places):
     return answer
 
 
+from collections import deque
+
+def bfs(place):
+    start_position = []
+
+    for x,value in enumerate(place) :
+        for y,value in enumerate(value):
+            if place[x][y] == "P":
+                start_position.append((x,y))
+    
+    for start in start_position:
+        queue = deque([start])
+        visited = [[0]*5 for i in range(0,5)]
+        distance = [[0]*5 for i in range(0,5)]
+        visited[start[0]][start[1]] = 1
+
+        while queue:
+            y,x = queue.popleft()
+            #좌표
+            positions = [(-1,0),(1,0),(0,-1),(0,1)]
+
+            for position in positions:
+                nx = x + position[0]
+                ny = y + position[1]
+
+                if 0<=nx <5 and 0 <= ny < 5 and visited[ny][nx] == 0:
+    
+                    if place[ny][nx] == "O" :
+                        visited[ny][nx] = 1
+                        distance[ny][nx] = distance[y][x] + 1
+                        queue.append((ny,nx))
+                    
+                    if place[ny][nx] =='P' and distance[y][x] <= 1:
+                        return 0
+    return 1
+
+            
+
+
+def solution(places):
+    answer = []
+
+    for place in places:
+        answer.append(bfs(place))
+
+    return answer
+
+
 if __name__ == "__main__":
     test_input = {
         "places": 
@@ -65,10 +113,15 @@ if __name__ == "__main__":
           "OOXOX", 
           "POXXP"], 
          ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"], 
-         ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"], 
+         ["PXOPX", 
+          "OXOXP", 
+          "OXPOX", 
+          "OXXOP", 
+          "PXPOX"], 
          ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"], 
          ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]]
     }
 
 
+    print(solution1(**test_input))
     print(solution(**test_input))
