@@ -10,27 +10,27 @@
 """
 import re
 
+
 def solution(new_id):
-    answer = ''
+    answer = ""
 
-    answer = new_id.lower() # 1단계
-    answer = re.sub(r'[^\w\.\_\-]',"",answer) #2단계
-    answer = re.sub(r'\.{2,}',".",answer) # 3단계
-    answer = re.sub(r'^\.',"",answer) # 4단계
-    answer = re.sub(r'\.$',"",answer)
+    answer = new_id.lower()  # 1단계
+    answer = re.sub(r"[^\w\.\_\-]", "", answer)  # 2단계
+    answer = re.sub(r"\.{2,}", ".", answer)  # 3단계
+    answer = re.sub(r"^\.", "", answer)  # 4단계
+    answer = re.sub(r"\.$", "", answer)
 
-    answer = answer.replace(" ","a") # 5단계
-    
-    if len(answer) == 0 :
-        answer = 'a'
+    answer = answer.replace(" ", "a")  # 5단계
+
+    if len(answer) == 0:
+        answer = "a"
 
     if len(answer) >= 16:
         answer = answer[:15]
-        answer = re.sub(r'\.$',"",answer) # 6단계
-    
+        answer = re.sub(r"\.$", "", answer)  # 6단계
 
-    if len(answer)<= 2 :
-        answer = answer.ljust(3,answer[-1])
+    if len(answer) <= 2:
+        answer = answer.ljust(3, answer[-1])
 
     return answer
 
@@ -38,20 +38,20 @@ def solution(new_id):
 if __name__ == "__main__":
     test_inputs = [
         {
-            "new_id":"...!@BaT#*..y.abcdefghijklm",
+            "new_id": "...!@BaT#*..y.abcdefghijklm",
         },
-         {
-            "new_id":"z-+.^.",
+        {
+            "new_id": "z-+.^.",
         },
-         {
-            "new_id":"=.=",
+        {
+            "new_id": "=.=",
         },
-         {
-            "new_id":"123_.def",
-        }
+        {
+            "new_id": "123_.def",
+        },
     ]
 
-    assert(solution(**test_inputs[0])==	"bat.y.abcdefghi")
-    assert(solution(**test_inputs[1])=="z--")
-    assert(solution(**test_inputs[2])=="aaa")
-    assert(solution(**test_inputs[3])=='123_.def')
+    assert solution(**test_inputs[0]) == "bat.y.abcdefghi"
+    assert solution(**test_inputs[1]) == "z--"
+    assert solution(**test_inputs[2]) == "aaa"
+    assert solution(**test_inputs[3]) == "123_.def"

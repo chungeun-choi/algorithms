@@ -1,8 +1,9 @@
 from collections import deque
 import heapq
 
+
 def solution(priorities, location):
-    queue =  [(i,p) for i,p in enumerate(priorities)]
+    queue = [(i, p) for i, p in enumerate(priorities)]
     answer = 0
     while True:
         cur = queue.pop(0)
@@ -14,14 +15,8 @@ def solution(priorities, location):
                 return answer
 
 
-if __name__ == "__main__" :
-    input = {
-        "priorities":[2, 1, 3, 2],
-        "location":2
-    }
-    input2 = {
-        "priorities":[1, 1, 9, 1, 1, 1],
-        "location":0
-    }
+if __name__ == "__main__":
+    input = {"priorities": [2, 1, 3, 2], "location": 2}
+    input2 = {"priorities": [1, 1, 9, 1, 1, 1], "location": 0}
     solution(**input2)
     pass
