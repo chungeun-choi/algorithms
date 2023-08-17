@@ -1,27 +1,3 @@
-def dfs(start,end,maps):
-    width = len(maps[0])
-    hight = len(maps)
-    visited = [[0]*width for i in range(hight)]
-    moving = [(-1,0),(1,0),(0,-1),(0,1)]
-    queue = [start]
-    visited[start[0]][start[1]] = 1
-
-    while queue:
-        x,y = queue.pop()
-        
-        for dx,dy in moving:
-            nx, ny = x+dx,y+dy
-
-            if 0 <= nx < hight and 0 <= ny < width:
-                if maps[nx][ny] != "X" and visited[nx][ny] ==0:
-                    if (nx,ny) == end:
-                        return visited[x][y]
-                    visited[nx][ny] = visited[x][y] +1
-                    queue.append((nx,ny))
-                
-    return -1
-
-
 from collections import deque
 
 def bfs(start,end,maps):
@@ -56,10 +32,10 @@ def solution(maps):
             elif maps[i][j] == "L" : l_pos = (i,j)
             elif maps[i][j] == "E" : e_pos = (i,j)
     
-    l_distacne = dfs(s_pos,l_pos,maps)
+    l_distacne = bfs(s_pos,l_pos,maps)
     if l_distacne == -1:
         return -1
-    e_distance = dfs(l_pos,e_pos,maps)
+    e_distance = bfs(l_pos,e_pos,maps)
     if e_distance == -1:
         return -1
 
