@@ -5,7 +5,7 @@ def solution(picks, minerals):
     total_picsk = sum(picks)
     devide_minerals = []
     minium_minerals = []
-
+    # 왜 정렬을 해야하는거지?
     for cnt, i in enumerate(minerals):
         if cnt != 0 and cnt % 5 == 0:
             devide_minerals.append(minium_minerals)
