@@ -3,4 +3,5 @@ go 1.19
 use (
 	./exam
 	./study
+	./studygroup/4week/go_find_maze
 )
