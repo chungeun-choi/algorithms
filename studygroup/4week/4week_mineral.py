@@ -18,6 +18,27 @@ def check_tired(pick,divide_list):
             elif abs(pick - weitght) == 2:
                 tired +=25
     return tired
+
+def djkicstra(picks,check,list):
+    start = None
+    if picks[0] > 0:
+        start = 0
+    elif picks[1] > 0:
+        start = 1
+    elif picks[2] > 0:
+        start =2
+    else:
+        return 0
+
+    while sum(picks) > 0:
+        for i in list:
+            result = check_tired(start,i)
+            if check[start][1] > result:
+                picks[start] -= 1
+                check[]
+            
+
+    return value
         
 def solution(picks, minerals):
     answer = 0
@@ -35,29 +56,9 @@ def solution(picks, minerals):
             if index+1 == len(minerals):
                 divide_list.append(object_list)
 
-    queue = deque([])
-    for index,count in enumerate(picks):
-        if count != 0:
-            queue.append([index,float('inf')])
-            picks[index] -= 1
-            break
+    check = {[] for i }
+    djkicstra()
 
-    while queue :
-        for i in divide_list:
-            index,prev_tired = queue.pop()
-            tired = prev_tired + check_tired(index,i)
-            if tired < prev_tired :
-                if picks[0] != 0 :
-                    queue.append([0,tired])
-                    picks[0] -= 1
-                elif picks[1] != 0 :
-                    queue.append([1,tired])
-                    picks[1] -= 1
-                elif picks[2] != 0 :
-                    queue.append([2,tired])
-                    picks[2] -= 1
-            else:
-                continue
 
     return answer
 
