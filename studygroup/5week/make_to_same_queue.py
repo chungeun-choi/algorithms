@@ -27,3 +27,25 @@ def solution(queue1, queue2):
     answer = -1
 
     return answer
+
+
+
+
+if __name__ == "__main__":
+    test_input = {
+        "queue1":[3, 2, 7, 2],
+        "queue2":[4, 6, 5, 1]
+    }
+    test_input2 = {
+        "queue1":[1, 2, 1, 2],
+        "queue2":[1, 10, 1, 2]
+    }
+
+    test_input3 = {
+        "queue1":[1, 1]	,
+        "queue2":[1, 5]
+    }
+
+    assert(solution(**test_input) == 2)
+    assert(solution(**test_input2) == 7)
+    assert(solution(**test_input3)== -1)
