@@ -16,9 +16,11 @@ def solution(bridge_length, weight, truck_weights):
     while queue:
         
         if len(way) !=0:
-            _,value = way.popleft()
-            answer += value
-            continue
+            sum_value = sum(map(lambda x:x[0],way))
+            if sum_value + queue[0] > weight:
+                _,value = way.popleft()
+                answer += value
+                continue
         else:
             truck_weight = queue.popleft()
             way.append([truck_weight,bridge_length])
