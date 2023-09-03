@@ -1,4 +1,5 @@
 from collections import deque
+# 거꾸로 풀이 필요
 def solution(triangle):
     answer = 0
     visited = []
