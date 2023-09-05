@@ -7,6 +7,6 @@ elif 89 >= a >= 80:
 elif 79 >= a >= 70:
     print("C")
 elif 69 >= a >= 60:
-    print("D")  
+    print("D")
 else:
     print("F")

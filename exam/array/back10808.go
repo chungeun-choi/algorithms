@@ -8,12 +8,11 @@ import (
 
 const startAlpha = 97
 
-
 func Solution(s string) string {
 	//returnArray := make([]int, 26)
-	var result string 
-	for cnt := startAlpha ; cnt <= startAlpha + 25 ;cnt ++ {
-		result += fmt.Sprintf("%d",strings.Count(s,string(cnt)))
+	var result string
+	for cnt := startAlpha; cnt <= startAlpha+25; cnt++ {
+		result += fmt.Sprintf("%d", strings.Count(s, string(cnt)))
 	}
 	result = strings.TrimSpace(result)
 	return result
@@ -30,7 +29,6 @@ func scan10808(rd *bufio.Reader) string {
 // 	wr := bufio.NewWriter(os.Stdout)
 
 // 	word := scan10808(rd)
-
 
 // 	_,_ = wr.WriteString(Solution(word))
 // 	_ = wr.Flush()

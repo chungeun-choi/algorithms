@@ -1,6 +1,8 @@
-a,b = input().split()
+a, b = input().split()
 
-def solution(a,b):
+
+def solution(a, b):
     return int(a) * int(b)
 
-print(solution(a,b))
+
+print(solution(a, b))

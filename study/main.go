@@ -10,9 +10,7 @@ import (
 	. "go-algorithms/study/stack"
 )
 
-
-
-func main(){
+func main() {
 	//배열 자료구조 확인
 	//array()
 	//improveArray()
@@ -25,36 +23,31 @@ func main(){
 	improveQueue()
 }
 
-
 func array() {
-	array := []int{1,2,3,4,5}
+	array := []int{1, 2, 3, 4, 5}
 
-	insertArray := Insert(2,27,array)
+	insertArray := Insert(2, 27, array)
 
 	fmt.Println(insertArray)
 
-	deleteArray := Delete(4,insertArray)
+	deleteArray := Delete(4, insertArray)
 
 	fmt.Println(deleteArray)
-	
+
 }
 
 func improveArray() {
-	array := []int{1,2,3,4,5}
+	array := []int{1, 2, 3, 4, 5}
 
-	insertArray := ImproveInsert(2,27,array)
+	insertArray := ImproveInsert(2, 27, array)
 
 	fmt.Println(insertArray)
 
-
-	deleteArray := ImproveDelete(2,array)
+	deleteArray := ImproveDelete(2, array)
 
 	fmt.Println(deleteArray)
 
 }
-
-
-
 
 func linkedList() {
 	linkd := NewLinkedList(1233)
@@ -63,37 +56,31 @@ func linkedList() {
 	linkd.InsertNext(544)
 	linkd.InsertNext(55621)
 
-
 	linkd.GetAllNodes()
 
 	linkd.DeleteLast(nil)
 
 	linkd.GetAllNodes()
 
-
 	linkd.DeleteIndex(2)
 
 	linkd.GetAllNodes()
 
-	linkd.InsertIndex(1,659)
+	linkd.InsertIndex(1, 659)
 
 	linkd.GetAllNodes()
 
-
-	_,value := linkd.GetIndexNode(2)
+	_, value := linkd.GetIndexNode(2)
 
 	fmt.Println(value)
 
 	linkd.DeleteNode(value)
 
-
 	linkd.GetAllNodes()
 
-	
 }
 
-
-func stack(){
+func stack() {
 	stack := NewStack()
 
 	stack.Push(123)
@@ -103,15 +90,13 @@ func stack(){
 
 	stack.GetObjectALl()
 
-
 	result := stack.Pop()
-	fmt.Printf("After Pop %d \n",result)
+	fmt.Printf("After Pop %d \n", result)
 	stack.GetObjectALl()
 
 }
 
-
-func queue(){
+func queue() {
 	queue := NewQueue()
 
 	queue.Push(12333)
@@ -121,12 +106,11 @@ func queue(){
 	queue.GetAllObject()
 
 	result := queue.Pop()
-	fmt.Printf("value %d \n",result)
-	
-	queue.GetAllObject()
-	
-}
+	fmt.Printf("value %d \n", result)
 
+	queue.GetAllObject()
+
+}
 
 func improveQueue() {
 	queue := NewImproveQueue(4)
@@ -138,7 +122,7 @@ func improveQueue() {
 	queue.GetAllObject()
 
 	result := queue.Pop()
-	fmt.Printf("value %d \n",result)
-	
+	fmt.Printf("value %d \n", result)
+
 	queue.GetAllObject()
 }

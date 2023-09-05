@@ -1,6 +1,12 @@
-a,b,c = map(int,input().split())
+a, b, c = map(int, input().split())
 
-def solution(a,b,c,):
-    return a+b+c
 
-print(solution(a,b,c))
+def solution(
+    a,
+    b,
+    c,
+):
+    return a + b + c
+
+
+print(solution(a, b, c))

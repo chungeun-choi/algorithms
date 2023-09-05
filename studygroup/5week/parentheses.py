@@ -2,20 +2,23 @@ def check(str_list):
     stack = []
 
     for _str in str_list:
-        if _str in ('[', '(', '{'):
+        if _str in ("[", "(", "{"):
             stack.append(_str)
         else:
-            if not stack: return False
+            if not stack:
+                return False
             x = stack.pop()
-            if _str == ']' and x != '[':
+            if _str == "]" and x != "[":
                 return False
-            elif _str == ')' and x != '(':
+            elif _str == ")" and x != "(":
                 return False
-            elif _str == '}' and x != '{':
+            elif _str == "}" and x != "{":
                 return False
 
-    if stack: return False
+    if stack:
+        return False
     return True
+
 
 def solution(s):
     cnt = 0
@@ -23,15 +26,12 @@ def solution(s):
         u = s[:i]
         v = s[i:]
 
-        if check(v+u):
-            cnt +=1
+        if check(v + u):
+            cnt += 1
     return cnt
 
 
-
 if __name__ == "__main__":
-    test_input = {
-        "s": "}]()[{"
-    }
+    test_input = {"s": "}]()[{"}
 
-    assert(solution(**test_input)==2)
+    assert solution(**test_input) == 2

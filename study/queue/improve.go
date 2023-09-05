@@ -5,16 +5,15 @@ import (
 )
 
 type ImproveQueue struct {
-	list []int
-	tail int 
-	header int 
+	list   []int
+	tail   int
+	header int
 }
-
 
 func NewImproveQueue(size int) QueueInterface {
 	return &ImproveQueue{
-		list : make([]int , size),
-		tail: 0,
+		list:   make([]int, size),
+		tail:   0,
 		header: 0,
 	}
 }
@@ -22,19 +21,18 @@ func NewImproveQueue(size int) QueueInterface {
 func (q *ImproveQueue) Push(value int) {
 
 	if q.tail > len(q.list)-1 {
-		q.tail =0 
+		q.tail = 0
 	}
-	
-	q.list[q.tail] = value 
+
+	q.list[q.tail] = value
 	q.tail++
-	fmt.Printf("Queue size: %d \n",len(q.list))
+	fmt.Printf("Queue size: %d \n", len(q.list))
 }
 
+func (q *ImproveQueue) Pop() int {
 
-func (q *ImproveQueue) Pop()  int {
-	
-	if q.header > len(q.list) -1 {
-		q.header = 0 
+	if q.header > len(q.list)-1 {
+		q.header = 0
 	}
 
 	result := q.list[q.header]
@@ -43,13 +41,11 @@ func (q *ImproveQueue) Pop()  int {
 	return result
 }
 
-
 func (q *ImproveQueue) GetAllObject() {
-	for _,value := range(q.list){
+	for _, value := range q.list {
 		if value == 0 {
 			continue
 		}
 		fmt.Println(value)
 	}
 }
-

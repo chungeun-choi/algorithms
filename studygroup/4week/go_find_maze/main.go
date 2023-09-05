@@ -10,17 +10,17 @@ type Pos struct {
 	y int
 }
 
-func bfs(start *Pos, end *Pos,maps []string) int {
-	queue := make(chan *Pos,10000)
+func bfs(start *Pos, end *Pos, maps []string) int {
+	queue := make(chan *Pos, 10000)
 	var moving = [4]Pos{
-		{x: -1, y:0},
-		{x: 1 , y:0},
-		{x: 0, y:-1},
-		{x:0, y:1},
+		{x: -1, y: 0},
+		{x: 1, y: 0},
+		{x: 0, y: -1},
+		{x: 0, y: 1},
 	}
 	width := utf8.RuneCountInString(maps[0])
 	hight := len(maps)
-	
+
 	visited := make([][]int, hight)
 	for i := range visited {
 		visited[i] = make([]int, width)
@@ -29,25 +29,25 @@ func bfs(start *Pos, end *Pos,maps []string) int {
 	queue <- start
 	visited[start.x][start.y] = 1
 
-	for position := range queue{
+	for position := range queue {
 		x := position.x
 		y := position.y
-		
-		for _,value := range moving{
+
+		for _, value := range moving {
 			nx := x + value.x
 			ny := y + value.y
 
 			if 0 <= nx && nx < hight && 0 <= ny && ny < width {
-				if visited[nx][ny] == 0{
-					if x_value := maps[nx]; x_value[ny] != 'X'{
+				if visited[nx][ny] == 0 {
+					if x_value := maps[nx]; x_value[ny] != 'X' {
 						positions := &Pos{
 							x: nx,
-							y:ny,
+							y: ny,
 						}
 						if positions.x == end.x && positions.y == end.y {
 							return visited[x][y]
-						}else{
-							visited[nx][ny] = visited[x][y] +1
+						} else {
+							visited[nx][ny] = visited[x][y] + 1
 							queue <- positions
 						}
 					}
@@ -59,7 +59,6 @@ func bfs(start *Pos, end *Pos,maps []string) int {
 	}
 	return -1
 }
-
 
 func solution(maps []string) int {
 	// 시작 위치, 레버 위치, 탈출 위치 찾기
@@ -75,20 +74,14 @@ func solution(maps []string) int {
 		x: 0,
 		y: 4,
 	}
-	result := bfs(test_start,test_lever,maps)
+	result := bfs(test_start, test_lever, maps)
 	fmt.Println(result)
-    return 0
+	return 0
 }
 
-
-
-
 func main() {
-	testInput := [5]string{"SOOOL","XXXXO","OOOOO","OXXXX","OOOOE"}
+	testInput := [5]string{"SOOOL", "XXXXO", "OOOOO", "OXXXX", "OOOOE"}
 
 	solution(testInput[:])
-
-
-	
 
 }

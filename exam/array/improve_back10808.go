@@ -7,15 +7,15 @@ import (
 )
 
 func ImporoveSolution(s string) (result string) {
-	count := make([]int,26)
+	count := make([]int, 26)
 
-	for _,c := range(s){
+	for _, c := range s {
 		char := rune(c) - rune('a')
 		count[char]++
 	}
 
 	for _, i := range count {
-		result += fmt.Sprintf("%d",i)
+		result += fmt.Sprintf("%d", i)
 	}
 
 	result = strings.TrimSpace(result)
@@ -23,14 +23,10 @@ func ImporoveSolution(s string) (result string) {
 	return
 }
 
-
-func Scan (rd *bufio.Reader) string {
-	str, _:= rd.ReadString('\n')
+func Scan(rd *bufio.Reader) string {
+	str, _ := rd.ReadString('\n')
 	str = strings.TrimSpace(str)
 
 	return str
 
-} 
-
-
-
+}
