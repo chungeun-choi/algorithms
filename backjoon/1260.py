@@ -36,9 +36,9 @@ if __name__ == "__main__":
         value.sort()
 
     visited =dict(zip([i for i in range(1,len_node+1)],[0 for i in range(len_node)]))
-    bfs(graph,start,visited) 
-    print("")
-    visited =dict(zip([i for i in range(1,len_node+1)],[0 for i in range(len_node)]))
     visited[start] = 1
     dfs(graph,start,visited)
+    print("")
+    visited =dict(zip([i for i in range(1,len_node+1)],[0 for i in range(len_node)]))
+    bfs(graph,start,visited) 
     
