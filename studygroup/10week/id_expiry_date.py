@@ -23,3 +23,4 @@ def solution(today, terms, privacies):
             continue
 
     return answer
+
