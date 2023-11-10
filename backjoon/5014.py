@@ -1,6 +1,7 @@
 from collections import deque
+
 if __name__ == "__main__":
-    F,S,G,U,D = map(int,input().split())
+    F, S, G, U, D = map(int, input().split())
 
     # 3 5 7 9 8 10
     building = [0] * (F + 1)

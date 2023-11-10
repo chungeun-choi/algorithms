@@ -4,7 +4,7 @@ if __name__ == "__main__":
     stack = []
     # while string_value.find(trigger_keyword) != -1:
     #     string_value = string_value.replace(trigger_keyword,"")
-    
+
     # if len(string_value) == 0:
     #     print("FRULA")
     # else:
@@ -13,11 +13,11 @@ if __name__ == "__main__":
 
     for i in string_value:
         stack.append(i)
-        if ''.join(stack[-len_value:]) == trigger_keyword:
+        if "".join(stack[-len_value:]) == trigger_keyword:
             for _ in range(len_value):
                 stack.pop()
-            
-    if len(stack) == 0 :
+
+    if len(stack) == 0:
         print("FRULA")
     else:
         print("".join(stack))

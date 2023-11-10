@@ -49,19 +49,25 @@ def solution(N, road, K):
     return answer
 
 
-
 if __name__ == "__main__":
     test_case1 = {
-        "N":5,
-        "road": [[1,2,1],[2,3,3],[5,2,2],[1,4,2],[5,3,1],[5,4,2]],
-        "K":	3
+        "N": 5,
+        "road": [[1, 2, 1], [2, 3, 3], [5, 2, 2], [1, 4, 2], [5, 3, 1], [5, 4, 2]],
+        "K": 3,
     }
     test_case2 = {
-        "N":6,
-        "road": [[1,2,1],[1,3,2],[2,3,2],[3,4,3],[3,5,2],[3,5,3],[5,6,1]],
-        "K":4
+        "N": 6,
+        "road": [
+            [1, 2, 1],
+            [1, 3, 2],
+            [2, 3, 2],
+            [3, 4, 3],
+            [3, 5, 2],
+            [3, 5, 3],
+            [5, 6, 1],
+        ],
+        "K": 4,
     }
 
-    assert(solution(**test_case1)==4)
-    assert(solution(**test_case2)==4)
-    
+    assert solution(**test_case1) == 4
+    assert solution(**test_case2) == 4

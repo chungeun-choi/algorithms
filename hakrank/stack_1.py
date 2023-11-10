@@ -14,6 +14,7 @@ import sys
 # The function accepts STRING s as parameter.
 #
 
+
 def superReducedString(s):
     # Write your code here
     stack = []
@@ -28,16 +29,16 @@ def superReducedString(s):
     if not stack:
         return "Empty String"
     else:
-        return ''.join(stack)
+        return "".join(stack)
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     s = input()
 
     result = superReducedString(s)
 
-    fptr.write(result + '\n')
+    fptr.write(result + "\n")
 
     fptr.close()

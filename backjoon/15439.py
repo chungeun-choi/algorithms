@@ -1,3 +1,3 @@
 N = int(input())
 
-print(N*(N-1))
+print(N * (N - 1))
